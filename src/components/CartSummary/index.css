@@ -1,0 +1,26 @@
+/* Write your CSS here */
+.cart-summary-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.cart-summary-header {
+  margin: 0;
+  padding: 0;
+  color: #616e7c;
+}
+.cart-summary-header span {
+  color: #171f46;
+  font-size: 1rem;
+}
+.cart-summary-para {
+  margin-top: 0;
+  color: #616e7c;
+}
+.checkout-btn {
+  background-color: #0b69ff;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px;
+  color: white;
+}
