@@ -1,7 +1,15 @@
+
 .product-sections {
   display: flex;
   flex-direction: column;
   margin: auto;
   width: 90%;
   max-width: 1110px;
+  overflow: visible;
+  padding-top: 10px;
+}
+@media screen and (min-width: 768px) {
+  .product-sections {
+    padding-top: 20px;
+  }
 }

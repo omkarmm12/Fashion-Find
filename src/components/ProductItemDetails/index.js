@@ -7,7 +7,7 @@ import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import CartContext from '../../context/CartContext'
 
 import Header from '../Header'
-import SimilarProductItem from '../SimilarProductItem'
+import ProductCard from '../ProductCard'
 
 import './index.css'
 
@@ -19,15 +19,36 @@ const apiStatusConstants = {
 }
 
 class ProductItemDetails extends Component {
-  state = {
-    productData: {},
-    similarProductsData: [],
-    apiStatus: apiStatusConstants.initial,
-    quantity: 1,
+  constructor(props) {
+    super(props)
+    this.state = {
+      productData: {},
+      similarProductsData: [],
+      apiStatus: apiStatusConstants.initial,
+      quantity: 1,
+      successMsg: false,
+    }
   }
 
   componentDidMount() {
     this.getProductData()
+  }
+
+  componentDidUpdate(prevProps) {
+    const {
+      match: {
+        params: {id: prevId},
+      },
+    } = prevProps
+    const {
+      match: {
+        params: {id: currentId},
+      },
+    } = this.props
+
+    if (prevId !== currentId) {
+      this.getProductData()
+    }
   }
 
   getFormattedData = data => ({
@@ -114,7 +135,8 @@ class ProductItemDetails extends Component {
   renderProductDetailsView = () => (
     <CartContext.Consumer>
       {value => {
-        const {productData, quantity, similarProductsData} = this.state
+        const {productData, quantity, similarProductsData, successMsg} =
+          this.state
         const {
           availability,
           brand,
@@ -126,8 +148,13 @@ class ProductItemDetails extends Component {
           totalReviews,
         } = productData
         const {addCartItem} = value
+
         const onClickAddToCart = () => {
           addCartItem({...productData, quantity})
+          this.setState({successMsg: true})
+          setTimeout(() => {
+            this.setState({successMsg: false})
+          }, 2000)
         }
 
         return (
@@ -160,6 +187,7 @@ class ProductItemDetails extends Component {
                 <hr className="horizontal-line" />
                 <div className="quantity-container">
                   <button
+                    aria-label="close"
                     type="button"
                     className="quantity-controller-button"
                     onClick={this.onDecrementQuantity}
@@ -172,6 +200,7 @@ class ProductItemDetails extends Component {
                     type="button"
                     className="quantity-controller-button"
                     onClick={this.onIncrementQuantity}
+                    aria-label="close"
                     data-testid="plus"
                   >
                     <BsPlusSquare className="quantity-controller-icon" />
@@ -184,13 +213,16 @@ class ProductItemDetails extends Component {
                 >
                   ADD TO CART
                 </button>
+                {successMsg && (
+                  <p className="success-msg">Product added to cart !</p>
+                )}
               </div>
             </div>
             <h1 className="similar-products-heading">Similar Products</h1>
             <ul className="similar-products-list">
               {similarProductsData.map(eachSimilarProduct => (
-                <SimilarProductItem
-                  productDetails={eachSimilarProduct}
+                <ProductCard
+                  productData={eachSimilarProduct}
                   key={eachSimilarProduct.id}
                 />
               ))}

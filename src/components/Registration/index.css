@@ -1,73 +1,84 @@
-.login-container {
+.register-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 95%;
+  width: 100%;
   max-width: 1110px;
   margin: auto;
-  padding-top: 45px;
+  padding-top: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .login-container {
+  .register-container {
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
   }
 }
 
-.login-website-logo-mobile-img {
+.register-website-logo-mobile-img {
   width: 165px;
   margin-top: 50px;
   margin-bottom: 35px;
 }
 
-@media screen and (min-width: 768px) {
-  .login-website-logo-mobile-img {
+@media screen and (min-width: 992px) {
+  .register-website-logo-mobile-img {
     display: none;
   }
 }
 
-.login-img {
+.register-img {
   width: 278px;
 }
 
-@media screen and (max-width: 767px) {
-  .login-img {
-    display: none;
-  }
-}
 @media screen and (min-width: 768px) {
-  .login-img {
-    width: 60%;
+  .register-img {
+    width: 500px;
     max-width: 524px;
     flex-shrink: 1;
   }
 }
-
-.login-website-logo-img {
-  width: 185px;
-}
-
-.login-form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border-radius: 8px;
-  width: 95%;
-  max-width: 400px;
-  box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.1);
-}
-
-@media screen and (min-width: 768px) {
-  .login-form-container {
-    width: 350px;
-    flex-shrink: 0;
-    box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.1);
+@media screen and (max-width: 768px) {
+  .register-img {
+    display: none;
   }
 }
 
+.register-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 20px;
+}
+.register-form-container {
+  flex-shrink: 0;
+  box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.1);
+  padding: 10px 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .register-form-container {
+    width: 350px;
+    flex-shrink: 0;
+    box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.1);
+    padding: 10px 40px;
+  }
+}
+.register-website-logo-img {
+  width: 185px;
+}
+@media screen and (min-width: 768px) {
+  .register-website-logo-img {
+    display: none;
+  }
+}
 .input-container {
   display: flex;
   flex-direction: column;
@@ -92,7 +103,7 @@
   color: #64748b;
   border-radius: 2px;
   margin-top: 5px;
-  padding: 8px 16px 8px 16px;
+  padding: 6px 15px;
   outline: none;
 }
 
@@ -104,7 +115,7 @@
   color: #64748b;
   border-radius: 2px;
   margin-top: 5px;
-  padding: 8px 16px 8px 16px;
+  padding: 6px 15px;
   outline: none;
 }
 
@@ -117,33 +128,47 @@
   width: 100%;
   margin-top: 20px;
   margin-bottom: 2px;
-  background-color: #0b69ff;
+  background-color: #3f36ec;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   outline: none;
 }
 
+.success-message {
+  align-self: start;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #0ab80d;
+}
 .error-message {
   align-self: start;
   margin-top: 3px;
   margin-bottom: 0px;
   font-family: 'Roboto';
   font-size: 12px;
+  font-weight: 600;
   line-height: 16px;
   color: #ff0b37;
 }
 
-.registerBtn {
+.loginBtn {
   background-color: transparent;
   border: 0;
-  color: #0b69ff;
+  color: #3f36ec;
   font-weight: 600;
   cursor: pointer;
 }
+.cursorBlock {
+  cursor: not-allowed;
+}
 
 @media screen and (min-width: 767px) {
-  .registerBtn {
+  .loginBtn {
     font-weight: 700;
     font-size: medium;
   }

@@ -7,9 +7,12 @@ import './index.css'
 
 const Header = props => {
   const onClickLogout = () => {
-    const {history} = props
-    Cookies.remove('jwt_token')
-    history.replace('/login')
+    const confirmLogout = window.confirm('Are you sure you want to log out?')
+    if (confirmLogout) {
+      const {history} = props
+      Cookies.remove('jwt_token')
+      history.replace('/welcome')
+    }
   }
 
   const renderCartItemsCount = () => (
@@ -36,7 +39,7 @@ const Header = props => {
           <Link to="/">
             <img
               className="website-logo"
-              src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+              src="https://i.ibb.co/PxxwvgV/Fashion-Find-Logo.png"
               alt="website logo"
             />
           </Link>
@@ -45,7 +48,7 @@ const Header = props => {
             type="button"
             className="nav-mobile-btn"
             onClick={onClickLogout}
-          >   
+          >
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
               alt="nav logout"
@@ -58,7 +61,7 @@ const Header = props => {
           <Link to="/">
             <img
               className="website-logo"
-              src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+              src="https://i.ibb.co/PxxwvgV/Fashion-Find-Logo.png"
               alt="website logo"
             />
           </Link>
@@ -96,7 +99,7 @@ const Header = props => {
           <li className="nav-menu-item-mobile">
             <Link to="/" className="nav-link">
               <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png"
+                src="https://i.ibb.co/CWjQGwg/Fasionfind-logo.png"
                 alt="nav home"
                 className="nav-bar-img"
               />

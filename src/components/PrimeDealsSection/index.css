@@ -1,9 +1,9 @@
 .primedeals-list-heading {
   color: #475569;
   font-family: 'Roboto';
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 500;
-  margin-top: 48px;
+  margin-top: 40px;
 }
 
 .products-list {
@@ -13,12 +13,12 @@
 }
 
 .register-prime-img {
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 .primedeals-loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 50vh;
 }

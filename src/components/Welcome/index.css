@@ -1,58 +1,65 @@
-.home-container {
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.welcome-home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
   padding-top: 10px;
-  padding-bottom: 30px;
   width: 95%;
   max-width: 1110px;
 }
 
 @media screen and (min-width: 768px) {
-  .home-container {
+  .welcome-home-container {
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 50px;
+    padding-top: 20px;
   }
 }
 
-.home-content {
+.welcome-home-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
-  .home-content {
-    align-items: flex-start;
+  .welcome-home-content {
+    align-items: center;
   }
 }
 
-.home-mobile-img {
-  width: 206px;
+.welcome-home-mobile-img {
+  width: 200px;
 }
 
 @media screen and (min-width: 768px) {
-  .home-mobile-img {
+  .welcome-home-mobile-img {
     display: none;
   }
 }
 
-.home-desktop-img {
-  width: 46%;
-  max-width: 400px;
+.welcome-home-desktop-img {
+  width: 50%;
+  max-width: 450px;
   margin-left: 85px;
 }
 
 @media screen and (max-width: 767px) {
-  .home-desktop-img {
+  .welcome-home-desktop-img {
     display: none;
   }
 }
 
-.home-heading {
+.welcome-home-heading {
   color: #1e293b;
   font-family: 'Roboto';
   font-weight: bold;
@@ -62,13 +69,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .home-heading {
+  .welcome-home-heading {
     font-size: 46px;
     text-align: left;
   }
 }
 
-.home-description {
+.welcome-home-description {
   font-family: 'Roboto';
   margin-top: 36px;
   font-size: 14px;
@@ -79,14 +86,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .home-description {
+  .welcome-home-description {
     font-size: 18px;
     margin-top: 0px;
     text-align: left;
   }
 }
 
-.shop-now-button {
+.welcome-shop-now-button {
   font-size: 14px;
   font-weight: 400;
   font-family: 'Roboto';
@@ -95,14 +102,14 @@
   padding-top: 12px;
   padding-bottom: 12px;
   border-radius: 6px;
-  background-color: #3f36ec;
+  background-color: #0967d2;
   margin-top: 20px;
   cursor: pointer;
   outline: none;
 }
 
 @media screen and (min-width: 768px) {
-  .shop-now-button {
+  .welcome-shop-now-button {
     width: 150px;
     font-size: 16px;
   }

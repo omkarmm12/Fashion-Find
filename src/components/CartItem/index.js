@@ -18,13 +18,13 @@ class CartItem extends Component {
           } = value
           const {cartItemDetails} = this.props
           const {id, title, brand, price, imageUrl} = cartItemDetails
-          let {quantity} = cartItemDetails
+          const {quantity} = cartItemDetails
           const onRemoveCartItem = () => {
             removeCartItem(id)
           }
           // TODO: Update the functionality to increment and decrement quantity of the cart item
           const onIncrease = () => {
-            const newQuatity = (quantity += 1)
+            const newQuatity = quantity + 1
             incrementCartItemQuantity({
               ...cartItemDetails,
               quantity: newQuatity,
@@ -33,7 +33,7 @@ class CartItem extends Component {
 
           const onDecrease = () => {
             if (quantity > 1) {
-              const newQuatity = (quantity -= 1)
+              const newQuatity = quantity - 1
               decrementCartItemQuantity({
                 ...cartItemDetails,
                 quantity: newQuatity,
@@ -56,6 +56,7 @@ class CartItem extends Component {
                     type="button"
                     className="quantity-controller-button"
                     onClick={onDecrease}
+                    aria-label="close"
                     data-testid="minus"
                   >
                     <BsDashSquare color="#52606D" size={12} />
@@ -65,6 +66,7 @@ class CartItem extends Component {
                     type="button"
                     className="quantity-controller-button"
                     onClick={onIncrease}
+                    aria-label="close"
                     data-testid="plus"
                   >
                     <BsPlusSquare color="#52606D" size={12} />
@@ -76,6 +78,7 @@ class CartItem extends Component {
                     className="remove-button"
                     type="button"
                     onClick={onRemoveCartItem}
+                    aria-label="close"
                     data-testid="remove"
                   >
                     Remove
@@ -86,6 +89,7 @@ class CartItem extends Component {
                 className="delete-button"
                 type="button"
                 onClick={onRemoveCartItem}
+                aria-label="close"
               >
                 <AiFillCloseCircle color="#616E7C" size={20} />
               </button>

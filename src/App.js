@@ -9,6 +9,8 @@ import Cart from './components/Cart'
 import NotFound from './components/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 import CartContext from './context/CartContext'
+import Registration from './components/Registration'
+import Welcome from './components/Welcome'
 
 import './App.css'
 
@@ -25,12 +27,13 @@ class App extends Component {
     if (oldProduct === undefined) {
       this.setState(prevState => ({cartList: [...prevState.cartList, product]}))
     } else {
-      const newQuantity = (oldProduct.quantity += 1)
+      const newQuantity = oldProduct.quantity + product.quantity
       const filtered = cartList.filter(item => item.id !== product.id)
       const newProduct = {...oldProduct, quantity: newQuantity}
       this.setState({cartList: [...filtered, newProduct]})
     }
   }
+
   removeCartItem = id => {
     const {cartList} = this.state
     const filteredList = cartList.filter(product => product.id !== id)
@@ -39,13 +42,13 @@ class App extends Component {
 
   incrementCartItemQuantity = product => {
     const {cartList} = this.state
-    let filterdList = cartList.filter(item => item.id !== product.id)
+    const filterdList = cartList.filter(item => item.id !== product.id)
     this.setState({cartList: [...filterdList, product]})
   }
 
   decrementCartItemQuantity = product => {
     const {cartList} = this.state
-    let filterdList = cartList.filter(item => item.id !== product.id)
+    const filterdList = cartList.filter(item => item.id !== product.id)
     this.setState({cartList: [...filterdList, product]})
   }
 
@@ -69,6 +72,8 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/registration" component={Registration} />
+          <Route exact path="/welcome" component={Welcome} />
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/products" component={Products} />
           <ProtectedRoute

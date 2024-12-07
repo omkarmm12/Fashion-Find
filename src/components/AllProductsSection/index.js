@@ -4,7 +4,6 @@ import Cookies from 'js-cookie'
 
 import FiltersGroup from '../FiltersGroup'
 import ProductCard from '../ProductCard'
-import ProductsHeader from '../ProductsHeader'
 
 import './index.css'
 
@@ -91,12 +90,8 @@ class AllProductsSection extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const {
-      activeOptionId,
-      activeCategoryId,
-      searchInput,
-      activeRatingId,
-    } = this.state
+    const {activeOptionId, activeCategoryId, searchInput, activeRatingId} =
+      this.state
     const apiUrl = `https://apis.ccbp.in/products?sort_by=${activeOptionId}&category=${activeCategoryId}&title_search=${searchInput}&rating=${activeRatingId}`
     const options = {
       headers: {
@@ -153,16 +148,11 @@ class AllProductsSection extends Component {
   }
 
   renderProductsListView = () => {
-    const {productsList, activeOptionId} = this.state
+    const {productsList} = this.state
     const shouldShowProductsList = productsList.length > 0
 
     return shouldShowProductsList ? (
       <div className="all-products-container">
-        <ProductsHeader
-          activeOptionId={activeOptionId}
-          sortbyOptions={sortbyOptions}
-          changeSortby={this.changeSortby}
-        />
         <ul className="products-list">
           {productsList.map(product => (
             <ProductCard productData={product} key={product.id} />
@@ -233,12 +223,15 @@ class AllProductsSection extends Component {
       <div className="all-products-section">
         <FiltersGroup
           searchInput={searchInput}
+          sortbyOptions={sortbyOptions}
           categoryOptions={categoryOptions}
           ratingsList={ratingsList}
           changeSearchInput={this.changeSearchInput}
           enterSearchInput={this.enterSearchInput}
+          activeOptionId={this.activeOptionId}
           activeCategoryId={activeCategoryId}
           activeRatingId={activeRatingId}
+          changeSortby={this.changeSortby}
           changeCategory={this.changeCategory}
           changeRating={this.changeRating}
           clearFilters={this.clearFilters}
